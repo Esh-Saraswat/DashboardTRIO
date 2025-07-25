@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TRIO Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+    }
+    header {
+      background-color: #1e2a38;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      font-size: 2em;
+      font-weight: bold;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .dashboard {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      padding: 2em;
+      animation: slideUp 1s ease-out;
+    }
+    .card {
+      background-color: white;
+      padding: 2em;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 200px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      background-color: #e3f2fd;
+    }
+    .content {
+      padding: 2em;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+    .active {
+      display: block;
+      opacity: 1;
+    }
+    h2 {
+      color: #004466;
+      animation: slideUp 0.6s ease-out;
+    }
+    h3 {
+      margin-top: 1.5em;
+      padding: 0.5em 1em;
+      border-left: 8px solid;
+      background-color: #ffffff;
+      transition: border 0.5s;
+    }
+    h3:nth-of-type(1) { border-color: #e53935; }
+    h3:nth-of-type(2) { border-color: #43a047; }
+    h3:nth-of-type(3) { border-color: #1e88e5; }
+    h3:nth-of-type(4) { border-color: #8e24aa; }
+    ul {
+      text-align: left;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    p {
+      max-width: 800px;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+    img.preview {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-top: 1em;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      animation: zoomIn 0.8s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>TRIO</header>
+
+  <div class="dashboard">
+    <div class="card" onclick="showContent('smartstep')">
+      SmartStep
+    </div>
+    <div class="card" onclick="showContent('drainrover')">
+      Drain Inspection
+    </div>
+  </div>
+
+  <div id="smartstep" class="content">
+    <h2>SmartStep</h2>
+    <h3>🔍 Problem</h3>
+    <p>Visually impaired individuals face daily obstacles due to limited navigation tools. White canes don’t detect overhead or side obstacles, and guide dogs are expensive. This results in restricted independence and safety risks.</p>
+    <h3>💡 Solution</h3>
+    <ul>
+      <li>Ultrasonic sensors in shoes detect obstacles in four directions.</li>
+      <li>Bluetooth earpiece provides real-time audio guidance.</li>
+      <li>Users maintain a natural walking posture without external tools.</li>
+    </ul>
+    <h3>🚀 Innovation</h3>
+    <ul>
+      <li>Hands-free wearable integration with microcontroller processing.</li>
+      <li>3D spatial mapping with early warning system.</li>
+      <li>Enhanced safety and comfort in real-world conditions.</li>
+    </ul>
+    <h3>🔮 Future Development</h3>
+    <ul>
+      <li>GPS navigation and route tracking.</li>
+      <li>Haptic feedback in shoes.</li>
+      <li>AI-powered object recognition for smarter guidance.</li>
+    </ul>
+  </div>
+
+  <div id="drainrover" class="content">
+    <h2>Drain Inspection Rover</h2>
+    <h3>🔍 Problem</h3>
+    <p>Delhi NCR frequently suffers from urban flooding due to blocked drains. Manual inspection is slow and risky. This leads to damaged infrastructure, mosquito breeding, and fatalities.</p>
+    <h3>💡 Solution</h3>
+    <ul>
+      <li>IoT-enabled rover inspects underground drains before rain.</li>
+      <li>Onboard camera and sensors detect blockages.</li>
+      <li>Minor clogs are cleaned autonomously; major ones flagged for workers.</li>
+    </ul>
+    <h3>🚀 Innovation</h3>
+    <ul>
+      <li>Remote controlled rover with AI navigation.</li>
+      <li>Real-time data transmission to city servers.</li>
+      <li>Efficient inspection with minimal human risk.</li>
+    </ul>
+    <h3>🔮 Future Development</h3>
+    <ul>
+      <li>Drones to map surface drainage.</li>
+      <li>Robotic waste collectors for autonomous cleanup.</li>
+      <li>Data integration for city-wide flood prediction systems.</li>
+    </ul>
+  </div>
+
+  <script>
+    function showContent(id) {
+      document.querySelectorAll('.content').forEach(el => {
+        el.classList.remove('active');
+      });
+      document.getElementById(id).classList.add('active');
+    }
+  </script>
+</body>
+</html>
